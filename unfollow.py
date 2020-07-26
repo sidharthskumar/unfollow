@@ -41,10 +41,10 @@ if __name__ == '__main__':
                     #   help='Max seconds to wait between unfollow calls')
 
     #args = parser.parse_args()
-    username=str(input("enter your username:"))
-    password=str(input("enter your password:"))
-    num_unfollows=int(input("enter the number to be unfollowed"))
-    max_delay=int(input("enter your delay between unfollow? NOTE: larger unfollows require more delay and lesser <50 require lesser delay"))
+    username=str(input("Enter your username:"))
+    password=str(input("Enter your password:"))
+    num_unfollows=int(input("Enter the number to be unfollowed"))
+    max_delay=int(input("Enter your Minimum delay between unfollow. NOTE: larger unfollows require more delay and lesser <50 require lesser delay. This bot takes random number between 1-5 and adds it to this time to prevent bot detection"))
   
 	
 
@@ -81,4 +81,5 @@ if __name__ == '__main__':
         ig.getUsernameInfo(str(_))
         print('  - unfollowing user {}'.format(ig.LastJson['user']['username']))
         ig.unfollow(str(_))
-        time.sleep(random.uniform(1, max_delay))
+        ni=random.choice([1,2,3,4,5])
+        time.sleep(max_delay+ni)
